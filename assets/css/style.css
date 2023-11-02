@@ -1,0 +1,545 @@
+/* Reset CSS */
+*{
+    padding: 0; /* Đệm */
+    margin: 0; /* Cách lề */
+    box-sizing: border-box; /* Loại bỏ việc tính toán kích thước khi có padding hoặc broder*/  
+}
+
+html{
+    scroll-behavior: smooth; /* Cuộn khi chọn vào phần cần đến */
+    font-family: Arial, Helvetica, sans-serif; /* font-family thuộc tính xét font chữ cho cả web */
+}
+
+/* Nguyên tắc CSS
+1. Từ ngoài vào trong
+2. từ trên xuống dưới
+3. Từ tổng quan đến chi tiết
+ */
+
+/* Câu hỏi cần đặt ra khi làm webside
+1. Vị trí 
+2. Kích thước (wid
+3. Màu sắc
+4. Kiểu dáng (kiểu chữ,.... */
+
+ /* Common các class dùng chung cho toàn bộ web*/
+.clear{
+    clear: both;
+}
+
+.text-white{
+    color: #fff !important; /* important ưu tiên nhât */
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+.btn{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none; /* Bỏ gạch chân*/
+    padding: 11px 16px;
+    margin-top: 15px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #ccc;
+    color: #000;
+}
+
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-half{
+    width: 50%;
+}
+
+.col-full{
+    width: 100%;
+}
+
+.col-third{
+    width: 33.33333%;
+     /* width: calc(100%/3); cách dùng hàm chia  */
+}
+
+.mt-8{
+    margin-top: 8px !important; /* Chỉ những số chia hết cho 4 thì làm như này */
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+/* Main */
+#main{
+    /* Ẩn đi */
+    /* overflow: hidden; */
+}
+
+/* Header */
+#header{ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    background-color: black;
+    z-index: 1; /* Trục độ sâu */
+}
+
+/* nav */
+#nav{
+    display: inline-block;
+}
+
+#nav, .subnav{
+    align-items: center;
+    list-style-type: none;
+}
+
+#nav li{ /* Css vào tất cả thẻ li là con của nav*/
+    position: relative;
+}
+
+#nav > li{
+    display: inline-block; /* inline Trên một hàng / block giữ lại tính chất khối*/
+}
+
+#nav > li > a{ /* Lấy vào thẻ con trực tiếp */
+    color: #fff;
+    text-transform: uppercase; /* text-transform = chỉnh sửa, uppercase = chữ hoa */
+}
+
+#nav li a{ /*Css vào tất cả thẻ a là con của li và li là con của nav*/
+    text-decoration: none; /* none bỏ đi*/
+    line-height: 46px; /* căn giữa chiều cao */
+    padding: 0 24px; /* Đệm */  
+    display: block; 
+}
+
+#nav li:hover .subnav{
+    display: block;
+}
+                    /* hover định nghĩa vô số thuộc tính css khi di chuột vào */
+#nav > li:hover > a{  /* hover vào thẻ li là con của thẻ nav thì con của thẻ li được hover */
+    color: black;
+    background-color: #ccc;
+
+}
+#nav .subnav{
+    display: none; /* Ẩn đi */
+    top: 100%;
+    left: 0;
+    min-width: 160px; /* Chiều ngang tối thiểu */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+    
+}
+
+#nav .subnav li:hover a{
+    color: black;
+    background-color: #ccc;
+}
+
+#nav .subnav a{
+    color: black;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#nav .nav-arrow-down{
+    font-size: 12px;
+}
+
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+#header .mobile-menu-btn,
+#header .search-btn{
+    float: right;
+    padding: 0 21px;
+}
+
+#header .search-btn:hover{
+    background-color: rgb(255, 0, 0);
+    cursor: pointer ; /* cursor thay đổi trỏ chuột */ 
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .menu-icon{
+    color: #000;
+}
+
+
+
+#header .menu-icon,
+#header .ti-search{
+    color: #fff;
+    font-size: 20px;
+    line-height: 46px; 
+}
+
+/* slider */
+#slider{
+    position: relative; /* Đè lên */
+    margin-top: 46px; /* Cách lề trên */
+    padding-top: 50%; /* 50% của chính nó */
+    background: url('../img/slide/slide_1.webp')top center / cover no-repeat;  /*cách viết gộp các thuộc tính của background */
+}
+
+#slider .text-content{
+    position: absolute;
+    bottom: 47px;
+    color: #fff;
+    /* left: 50%;
+    transform: translateX(-50%); cách căn giữa 1 */
+    /* width: 100%; cách 2 */
+    right: 0;
+    left: 0;
+    text-align: center; /* center = trung tâm */
+}
+
+#slider .text-heading{
+    font-weight: 500; /* mỏng chữ */
+    font-size: 24px;
+
+}
+
+#slider .text-description{
+    font-size: 15px;
+    margin-top: 25px;
+    text-shadow: 0 0 2px #000
+}
+
+/* content */
+#content .content-section{
+    width: 800px;
+    max-width: 100%;
+    padding: 64px 0 112px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content .section-heading{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 4px; /* khoảng cách chữ */
+}
+
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic; /* italic chữ nghiêng */
+    opacity: 0.6; /*trong suôt */
+}
+
+#content .about-text{
+    font-size: 15px;
+    margin-top: 25px;
+    text-align: justify; /* Căn đều 2 bên */
+    line-height: 1.4; /* chiều cao cách hàng */
+}
+
+#content .members-list{
+    margin-top: 32px;
+}
+
+#content .members-name{
+    font-size: 15px;
+}
+
+#content .members-img{
+    width: 154px;
+    margin-top: 15px;
+    border-radius: 4px; /* bo góc */
+}
+
+/* Tour section */
+.tour-section{
+    background: #000;
+}
+
+.tickets-list{
+    margin-top: 40px;
+    list-style: none; /* bỏ dấu chấm của thẻ li*/
+    background-color: #fff;
+}
+
+.tickets-list li{
+    color: #757575;
+    font-size: 15px ;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd; /* border đường viền */
+}
+
+.tickets-list .sold-out{
+    background-color: #f44336;
+    color: #fff;
+    padding: 3px 4px;
+    margin-left: 16px;
+
+}
+
+.tickets-list .quantity{
+    float: right; /* sang phải */ 
+    background-color: #000;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    line-height: 24px; /* căn giữa chiều cao bằng chiều cao của nó*/
+    text-align: center; /* Căn giữa trái phải */
+    margin-top: -3px;
+}
+
+/* Places */
+
+.places-list{
+    margin-top: 16px;
+}
+
+.places-img{
+    width: 100%;
+    display: block;
+}
+
+.places-img:hover{
+    opacity: 0.6;
+}
+
+.places-body{
+    padding: 16px;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.places-heading{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.places-time{
+    margin-top: 15px;  
+    color: #757575; 
+}
+
+.places-desc{    
+    margin-top: 15px;
+    line-height: 1.4; /* Tiếng việt cách 1.6, tiếng anh 1.6 */
+}
+
+
+
+.places-buy-btn:hover{
+    color: #000;
+    background-color: #ccc;
+}
+
+/* modal */
+.modal{
+    position: fixed; /* position đè lên, fixed phụ thuộc vào cửa sổ trình duyệt */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center; /* Căn giữa chiều cao */
+    justify-content: center; /* Căn giữa chiều ngang */
+}
+
+.modal.open{
+    display: flex;
+}
+
+/* Container */
+.modal-container{
+    background: #fff;
+    width: 900px;
+    max-width: calc(100% - 40px); /* mẹo thích nghi màn hình */
+    min-height: 200px;
+    position: relative;
+    animation: modalFedeIn ease 0.5s;
+}
+.modal-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    opacity: 0.7;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.modal-close:hover{
+    opacity: 1;
+}
+
+/* header */
+.modal-header{
+    background: #009688;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal-heading-icon{
+    margin-right: 15px;
+}
+
+/* body */
+.modal-body{
+    padding: 16px; 
+}
+
+.modal-label{
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.modal-input{
+    border: 1px  solid #ccc;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+#buy-tickets{
+    background: #009688;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-size: 15px;
+    text-transform: uppercase; /* uppercase chữ đậm */
+    padding: 18px;
+    cursor: pointer;
+}
+
+.modal-footer {
+    padding:16px;
+    text-align: right;
+}
+
+.modal-footer a{
+    color:  #2196F3;
+}
+
+@keyframes modalFedeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contact from */
+.contact-content{
+    margin-top: 48px;
+}
+
+.contact-infor{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.contact-infor i[class*="ti-"]{ /* Thể hiện trong attibute class có chưa ti- */
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-infor a{
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-infor a:hover{
+    opacity: 1;
+}
+
+.contact-form{
+    font-size: 15px;
+}
+
+.contact-form .form-control{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Map section */
+.map-section img{
+    width: 100%;
+}
+
+/* footer section */
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .socials-list{
+    font-size: 24px;
+}
+
+#footer .socials-list a{
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+#footer .socials-list a:hover{
+    opacity: 0.5;
+}
+
+#footer .coppyright{
+    font-size: 15px;
+    margin: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#footer .coppyright a{
+    color: rgba(0, 0, 0, 0.5);
+}
+
